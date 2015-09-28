@@ -1,7 +1,10 @@
 package RMI;
 
+import clientModel.StaffRegister;
+
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.sql.SQLException;
 
 /**
  * Created by Didoy on 8/24/2015.
@@ -9,5 +12,8 @@ import java.rmi.RemoteException;
 public interface RemoteMethods extends Remote {
 
     public boolean Login(String user, String pass)throws RemoteException;
-    public boolean checkDatabase() throws  RemoteException;
+    public boolean checkDatabase() throws  RemoteException, SQLException;
+    public boolean getAdminKeyCode(String keycode) throws  RemoteException;
+    public boolean register(StaffRegister staffRegister) throws  RemoteException;
+
 }
