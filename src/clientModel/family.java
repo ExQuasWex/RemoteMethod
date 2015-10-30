@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by reiner on 10/19/2015.
  */
 public class family implements Serializable {
-
+        // use for creating family info
     private familyInfo familyinfo;
     private FamilyPoverty familypoverty;
 
