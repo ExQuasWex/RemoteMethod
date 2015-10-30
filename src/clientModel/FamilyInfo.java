@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by reiner on 10/19/2015.
  */
-public class familyInfo implements Serializable{
+public class FamilyInfo implements Serializable{
 
     private String inputDate;
     private int surveyedYr;
@@ -22,7 +22,7 @@ public class familyInfo implements Serializable{
     private int clientID;
 
 
-    public familyInfo(int clientID, String inputDate, int surveyedYr, int residencyYr, int numofChildren, String name, String spouseName, String age, String maritalStatus, String barangay, String gender, String address) {
+    public FamilyInfo(int clientID, String inputDate, int surveyedYr, int residencyYr, int numofChildren, String name, String spouseName, String age, String maritalStatus, String barangay, String gender, String address) {
        this.clientID = clientID;
         this.inputDate = inputDate;
         this.surveyedYr = surveyedYr;
