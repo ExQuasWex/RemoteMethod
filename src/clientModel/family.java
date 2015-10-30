@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by reiner on 10/19/2015.
  */
-public class family implements Serializable {
+public class Family implements Serializable {
 
     private familyInfo familyinfo;
     private FamilyPoverty familypoverty;
