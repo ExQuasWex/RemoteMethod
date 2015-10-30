@@ -7,19 +7,19 @@ import java.io.Serializable;
  */
 public class Family implements Serializable {
 
-    private familyInfo familyinfo;
+    private FamilyInfo familyinfo;
     private FamilyPoverty familypoverty;
 
-    public Family(familyInfo familyinfo, FamilyPoverty familypoverty) {
+    public Family(FamilyInfo familyinfo, FamilyPoverty familypoverty) {
         this.familyinfo = familyinfo;
         this.familypoverty = familypoverty;
     }
 
-    public familyInfo getFamilyinfo() {
+    public FamilyInfo getFamilyinfo() {
         return familyinfo;
     }
 
-    public void setFamilyinfo(familyInfo familyinfo) {
+    public void setFamilyinfo(FamilyInfo familyinfo) {
         this.familyinfo = familyinfo;
     }
 
