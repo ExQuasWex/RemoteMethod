@@ -1,6 +1,6 @@
 package RMI;
 
-import clientModel.family;
+import clientModel.Family;
 import clientModel.StaffInfo;
 import clientModel.StaffRegister;
 
@@ -19,6 +19,6 @@ public interface RemoteMethods extends Remote {
     public boolean register(StaffRegister staffRegister) throws  RemoteException;
     public boolean getUsername(String username) throws  RemoteException;
     public void Logout(int accountID) throws  RemoteException;
-    public boolean addFamilyInfo(family family) throws RemoteException;
+    public boolean addFamilyInfo(Family family) throws RemoteException;
 
 }
