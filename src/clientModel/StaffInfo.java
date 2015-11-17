@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 public class StaffInfo implements Serializable {
 
-    private boolean isValid;
+    private boolean isAccountExist;
     private int accountID;
     private String status;
     private String name;
@@ -15,10 +15,16 @@ public class StaffInfo implements Serializable {
     private String password;
     private String address;
     private String contact;
+    private String role;
     private int entries;
 
-    public StaffInfo(boolean isvalid,int accountID, String status, String name,String username, String password, String address, String contact, int entries){
-        this.isValid = isvalid;
+    /*
+    Status represents if the account is already online in other terminal
+
+     */
+
+    public StaffInfo(boolean isAccountExist,int accountID, String status,String role, String name,String username, String password, String address, String contact, int entries){
+        this.isAccountExist = isAccountExist;
         this.accountID = accountID;
         this.status = status;
         this.name = name;
@@ -27,6 +33,15 @@ public class StaffInfo implements Serializable {
         this.address = address;
         this.contact = contact;
         this.entries = entries;
+        this.role = role;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getStatus() {
@@ -45,12 +60,12 @@ public class StaffInfo implements Serializable {
         this.accountID = accountID;
     }
 
-    public boolean isValid() {
-        return isValid;
+    public boolean isAccountExist() {
+        return isAccountExist;
     }
 
-    public void setValid(boolean isRegistered) {
-        this.isValid = isRegistered;
+    public void setAccountExist(boolean isRegistered) {
+        this.isAccountExist = isRegistered;
     }
 
     public String getName() {
