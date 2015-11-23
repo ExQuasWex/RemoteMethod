@@ -7,5 +7,6 @@ public class Constant {
 
     public static String Remote_ID = "Orville";
     public static int Remote_port = 7777;
+    public static int ClientPort = 7778;
 
 }
