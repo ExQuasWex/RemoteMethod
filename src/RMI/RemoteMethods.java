@@ -18,7 +18,7 @@ public interface RemoteMethods extends Remote {
     public boolean getAdminKeyCode(String keycode) throws  RemoteException;
     public boolean register(StaffRegister staffRegister) throws  RemoteException;
     public boolean getUsername(String username) throws  RemoteException;
-    public void Logout(int accountID) throws  RemoteException;
+    public void Logout(int accountID, String username) throws  RemoteException;
     public boolean addFamilyInfo(Family family) throws RemoteException;
 
 }
