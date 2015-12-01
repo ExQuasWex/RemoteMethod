@@ -20,5 +20,6 @@ public interface RemoteMethods extends Remote {
     public boolean getUsername(String username) throws  RemoteException;
     public void Logout(int accountID, String username) throws  RemoteException;
     public boolean addFamilyInfo(Family family) throws RemoteException;
+    public boolean  updateStaffInfo(StaffInfo staffInfo) throws RemoteException;
 
 }
