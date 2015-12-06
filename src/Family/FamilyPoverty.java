@@ -14,7 +14,8 @@ public class FamilyPoverty implements Serializable{
     private String isunderEmployed;
     private String childreninSchool;
 
-    public FamilyPoverty(String hasotherIncome, String isbelow8k, String ownership, String occupancy, String isunderEmployed, String childreninSchool) {
+    public FamilyPoverty(String hasotherIncome, String isbelow8k, String ownership,
+                         String occupancy, String isunderEmployed, String childreninSchool) {
         this.hasotherIncome = hasotherIncome;
         this.isbelow8k = isbelow8k;
         this.ownership = ownership;

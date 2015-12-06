@@ -21,8 +21,11 @@ public class FamilyInfo implements Serializable{
     private String address;
     private int clientID;
 
+    private int dbid;
 
-    public FamilyInfo(int clientID, String inputDate, int surveyedYr, int residencyYr, int numofChildren, String name, String spouseName, String age, String maritalStatus, String barangay, String gender, String address) {
+
+    public FamilyInfo(int clientID, String inputDate, int surveyedYr, int residencyYr, int numofChildren, String name,
+                      String spouseName, String age, String maritalStatus, String barangay, String gender, String address) {
        this.clientID = clientID;
         this.inputDate = inputDate;
         this.surveyedYr = surveyedYr;
@@ -36,6 +39,14 @@ public class FamilyInfo implements Serializable{
         this.barangay = barangay;
         this.gender = gender;
         this.address = address;
+    }
+
+    public int getDbid() {
+        return dbid;
+    }
+
+    public void setDbid(int dbid) {
+        this.dbid = dbid;
     }
 
     public int getClientID() {
