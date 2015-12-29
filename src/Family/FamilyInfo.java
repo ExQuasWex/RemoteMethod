@@ -21,7 +21,7 @@ public class FamilyInfo implements Serializable{
     private String address;
     private int clientID;
 
-    private int dbid;
+    private int familyId;
 
 
     public FamilyInfo(int clientID, String inputDate, int surveyedYr, int residencyYr, int numofChildren, String name,
@@ -41,12 +41,12 @@ public class FamilyInfo implements Serializable{
         this.address = address;
     }
 
-    public int getDbid() {
-        return dbid;
+    public int familyId() {
+        return familyId;
     }
 
-    public void setDbid(int dbid) {
-        this.dbid = dbid;
+    public void setfamilyId(int familyId) {
+        this.familyId = familyId;
     }
 
     public int getClientID() {
