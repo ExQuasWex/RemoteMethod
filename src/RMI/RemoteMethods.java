@@ -24,4 +24,5 @@ public interface RemoteMethods extends Remote {
     public boolean  updateStaffInfo(StaffInfo staffInfo, String oldUsername) throws RemoteException;
     public ArrayList searchedList(String name) throws RemoteException;
     public int getPendingAccounts() throws RemoteException;
+    public ArrayList getRequestAccounts() throws RemoteException;
 }
