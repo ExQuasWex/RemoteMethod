@@ -1,5 +1,6 @@
 package RMI;
 
+import AdminModel.RequestAccounts;
 import Family.Family;
 import clientModel.StaffInfo;
 import clientModel.StaffRegister;
@@ -25,4 +26,9 @@ public interface RemoteMethods extends Remote {
     public ArrayList searchedList(String name) throws RemoteException;
     public int getPendingAccounts() throws RemoteException;
     public ArrayList getRequestAccounts() throws RemoteException;
+    public boolean Approve(RequestAccounts ra) throws RemoteException;
+    public boolean ApproveAdmin(RequestAccounts ra) throws RemoteException;
+    public boolean Reject(RequestAccounts ra) throws RemoteException;
+
+
 }
