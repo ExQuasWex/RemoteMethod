@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public interface RemoteMethods extends Remote {
 
-    public StaffInfo Login(String user, String pass, String ip) throws RemoteException;
+    public StaffInfo Login(String user, String pass, String ip, int port, String REMOTE_ID) throws RemoteException;
     public boolean checkDatabase() throws  RemoteException, SQLException;
     public boolean register(StaffRegister staffRegister) throws  RemoteException;
     public boolean getUsername(String username) throws  RemoteException;
