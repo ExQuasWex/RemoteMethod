@@ -1,10 +1,9 @@
 package RMI;
 
 import AdminModel.RequestAccounts;
-import Family.Family;
+import Remote.Method.FamilyModel.Family;
 import clientModel.StaffInfo;
 import clientModel.StaffRegister;
-import javafx.collections.ObservableList;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

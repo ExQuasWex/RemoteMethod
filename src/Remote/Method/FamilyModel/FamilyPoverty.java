@@ -1,4 +1,4 @@
-package Family;
+package Remote.Method.FamilyModel;
 
 import java.io.Serializable;
 
