@@ -20,14 +20,18 @@ public interface RemoteMethods extends Remote {
     public boolean register(StaffRegister staffRegister) throws  RemoteException;
     public boolean getUsername(String username) throws  RemoteException;
     public void Logout(int accountID, String username) throws  RemoteException;
+
+
     public boolean addFamilyInfo(Family family) throws RemoteException;
     public boolean  updateStaffInfo(StaffInfo staffInfo, String oldUsername) throws RemoteException;
     public ArrayList searchedList(String name) throws RemoteException;
+
+
     public int getPendingAccounts() throws RemoteException;
     public ArrayList getRequestAccounts() throws RemoteException;
     public boolean Approve(RequestAccounts ra) throws RemoteException;
     public boolean ApproveAdmin(RequestAccounts ra) throws RemoteException;
     public boolean Reject(RequestAccounts ra) throws RemoteException;
 
-
+    public String getMethodIdentifiers() throws RemoteException;
 }
