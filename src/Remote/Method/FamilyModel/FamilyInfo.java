@@ -1,6 +1,7 @@
 package Remote.Method.FamilyModel;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 /**
  * Created by reiner on 10/19/2015.
@@ -8,7 +9,7 @@ import java.io.Serializable;
 public class FamilyInfo implements Serializable{
 
     private String inputDate;
-    private int surveyedYr;
+    private LocalDate surveyedYr;
     private int residencyYr;
     private int numofChildren;
 
@@ -24,7 +25,7 @@ public class FamilyInfo implements Serializable{
     private int familyId;
 
 
-    public FamilyInfo(int clientID, String inputDate, int surveyedYr, int residencyYr, int numofChildren, String name,
+    public FamilyInfo(int clientID, String inputDate, LocalDate surveyedYr, int residencyYr, int numofChildren, String name,
                       String spouseName, String age, String maritalStatus, String barangay, String gender, String address) {
        this.clientID = clientID;
         this.inputDate = inputDate;
@@ -66,11 +67,11 @@ public class FamilyInfo implements Serializable{
         this.inputDate = inputDate;
     }
 
-    public int getSurveyedYr() {
+    public LocalDate getSurveyedYr() {
         return surveyedYr;
     }
 
-    public void setSurveyedYr(int surveyedYr) {
+    public void setSurveyedYr(LocalDate surveyedYr) {
         this.surveyedYr = surveyedYr;
     }
 

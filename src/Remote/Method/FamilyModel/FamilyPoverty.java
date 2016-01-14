@@ -1,6 +1,7 @@
 package Remote.Method.FamilyModel;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 /**
  * Created by reiner on 10/19/2015.
@@ -13,16 +14,36 @@ public class FamilyPoverty implements Serializable{
     private String occupancy;
     private String isunderEmployed;
     private String childreninSchool;
+    private LocalDate dateissued;
+    private int month;
 
-    public FamilyPoverty(String hasotherIncome, String isbelow8k, String ownership,
-                         String occupancy, String isunderEmployed, String childreninSchool) {
+    public LocalDate getYear() {
+        return dateissued;
+    }
+
+    public void setYear(LocalDate year) {
+        this.dateissued = year;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    public FamilyPoverty(String hasotherIncome, String isbelow8k, String ownership, String occupancy, String isunderEmployed, String childreninSchool, LocalDate dateissued, int month) {
         this.hasotherIncome = hasotherIncome;
         this.isbelow8k = isbelow8k;
         this.ownership = ownership;
         this.occupancy = occupancy;
         this.isunderEmployed = isunderEmployed;
         this.childreninSchool = childreninSchool;
+        this.dateissued = dateissued;
+        this.month = month;
     }
+
 
     public String getHasotherIncome() {
         return hasotherIncome;
