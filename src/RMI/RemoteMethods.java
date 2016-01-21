@@ -59,7 +59,7 @@ public interface RemoteMethods extends Remote {
     // helps to identify if the search or notify was used in the server need to change
     public String getMethodIdentifiers()  throws RemoteException;
 
-    public Credentials getCredentials(String username) throws RemoteException;
+    public Credentials getCredentials(String username, String ipAddress) throws RemoteException;
 
 
 }
