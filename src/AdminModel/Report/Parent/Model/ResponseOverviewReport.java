@@ -1,4 +1,4 @@
-package AdminModel;
+package AdminModel.Report.Parent.Model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -6,12 +6,12 @@ import java.util.ArrayList;
 /**
  * Created by Didoy on 1/15/2016.
  */
-public class OverViewReportObject implements Serializable {
+public class ResponseOverviewReport implements Serializable {
 
 private ArrayList factorList;
 private ArrayList povertyList;
 
-    public OverViewReportObject(ArrayList factorList, ArrayList povertyList) {
+    public ResponseOverviewReport(ArrayList factorList, ArrayList povertyList) {
         this.factorList = factorList;
         this.povertyList = povertyList;
     }

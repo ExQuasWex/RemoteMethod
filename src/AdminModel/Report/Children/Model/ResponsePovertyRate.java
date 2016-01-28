@@ -1,16 +1,16 @@
-package AdminModel;
+package AdminModel.Report.Children.Model;
 
 import java.io.Serializable;
 
 /**
  * Created by Didoy on 11/25/2015.
  */
-public class BarangayData implements Serializable {
+public class ResponsePovertyRate implements Serializable {
 
     String barangayName;
     int UnresolvePopulation;
 
-    public BarangayData(String barangayName, int UnresolvePopulation) {
+    public ResponsePovertyRate(String barangayName, int UnresolvePopulation) {
         this.barangayName = barangayName;
         this.UnresolvePopulation = UnresolvePopulation;
     }

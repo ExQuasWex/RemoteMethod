@@ -1,12 +1,11 @@
 package RMI;
 
-import AdminModel.BarangayData;
-import AdminModel.OverViewReportObject;
 import AdminModel.Params;
+import AdminModel.Report.Children.Model.ResponseCompareOverview;
+import AdminModel.Report.Parent.Model.ResponseOverviewReport;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -17,15 +16,17 @@ public interface AdminInterface extends Remote {
     public boolean checkConnectDB()throws RemoteException;
 
     // ================= admin report methods  ======================== //
-    public OverViewReportObject getOverViewData(Params params, String type) throws RemoteException;
+    public ResponseOverviewReport getOverViewData(Params params, String type) throws RemoteException;
 
-    public ArrayList getCompareOverViewData(Params params, String type) throws RemoteException;
+    public ResponseCompareOverview getCompareOverViewData(Params params, String type) throws RemoteException;
 
     public ArrayList getCompareSpecificData(Params params, String type) throws RemoteException;
 
     public ArrayList getSpecificOverViewData(Params params, String type) throws RemoteException;
 
     public ArrayList getSpecific(Params params, String type) throws RemoteException;
+
+    public ArrayList getYears() throws RemoteException;
 
 
 }

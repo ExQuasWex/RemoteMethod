@@ -1,6 +1,9 @@
 package utility;
 
 import javafx.application.Platform;
+import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
@@ -8,8 +11,13 @@ import javafx.scene.layout.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Optional;
+import java.util.concurrent.Callable;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
 import java.util.regex.Pattern;
 
 /**
@@ -17,27 +25,24 @@ import java.util.regex.Pattern;
  */
 public class Utility {
 
+   private static  boolean isConfirmed;
+    private static Alert alertBox ;
+
     public Utility(){
+
     }
 
-    public boolean confirmExit(){
-        boolean bol = false;
-
-        Alert alertBox = new Alert(Alert.AlertType.CONFIRMATION);
-        alertBox.setTitle("Confirmation Window");
-        alertBox.setHeaderText("Are you sure you would like to exit?");
-        alertBox.setContentText(null);
-
-        Optional<ButtonType> result = alertBox.showAndWait();
-
-        if (result.get() == ButtonType.OK){
-            bol = true;
-        }else{
-            bol = false;
-            alertBox.close();
-        }
-        return bol;
+    public static String getCurrentYear(){
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        return  String.valueOf(year);
     }
+    public static int getCurrentIntYear(){
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        return  year;
+    }
+
+
+
 
     public static void ClearComponents(Pane mainpane){
         for (Node node: mainpane.getChildren()){
@@ -51,6 +56,8 @@ public class Utility {
 
                                         if (childrenNode.getClass().equals(TextField.class)){
                                             ((TextField) childrenNode).setText("");
+                                        }else if(childrenNode.getClass().equals(ComboBox.class)){
+                                            ((ComboBox) childrenNode).getSelectionModel().clearSelection();
                                         }
                                     }
 
@@ -73,7 +80,6 @@ public class Utility {
 
                         }
 
-
         }
 
     }
@@ -85,13 +91,14 @@ public class Utility {
     }
 
     public static int getCurrentMonth(){
-        java.util.Date date= new java.util.Date();
+        java.util.Date date = new java.util.Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         int month = cal.get(Calendar.MONTH);
 
         return month + 1;
     }
+
 
     public static LocalDate StringToLocalDate(String date){
         LocalDate localDate = LocalDate.parse(date);
@@ -111,21 +118,50 @@ public class Utility {
 
     public static void showMessageBox(String message, Alert.AlertType alertType){
 
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                Alert alertBox = new Alert(alertType);
-                alertBox.setTitle("Information");
-                alertBox.setContentText(message);
-                alertBox.setHeaderText(null);
-                alertBox.show();
-            }
-        });
-
-
+        if (!Platform.isFxApplicationThread()){
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    alertBox = new Alert(alertType);
+                    alertBox.setTitle("Information");
+                    alertBox.setContentText(message);
+                    alertBox.setHeaderText(null);
+                    alertBox.show();
+                }
+            });
+        }else {
+                    alertBox = new Alert(alertType);
+                    alertBox.setTitle("Information");
+                    alertBox.setContentText(message);
+                    alertBox.setHeaderText(null);
+                    alertBox.show();
+        }
 
     }
 
 
+    public static boolean showConfirmationMessage(String message, Alert.AlertType alertType)  {
+        isConfirmed = false;
+
+       if (Platform.isFxApplicationThread()){
+                       alertBox = new Alert(alertType);
+
+                       alertBox.setTitle("Information Message");
+                       alertBox.setHeaderText(message);
+                       alertBox.setContentText(null);
+
+                        Optional result = alertBox.showAndWait();
+
+                       if (result.get() == ButtonType.OK) {
+                           isConfirmed = true;
+                           System.out.println("thread true");
+                       } else {
+                           isConfirmed = false;
+                           System.out.println("thread false");
+                       }
+       }
+
+        return isConfirmed;
+    }
 
 }
