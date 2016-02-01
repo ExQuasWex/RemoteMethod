@@ -23,6 +23,9 @@ public class Params implements Serializable{
         MaxYear = maxYear;
     }
 
+    public Params() {
+    }
+
     public Params(int year, int MaxYear, int month, String barangay1, String barangay2) {
         Year = year;
         this.MaxYear = MaxYear;

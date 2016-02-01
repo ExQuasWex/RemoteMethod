@@ -28,5 +28,7 @@ public interface AdminInterface extends Remote {
 
     public ArrayList getYears() throws RemoteException;
 
+    public ArrayList getFamilyBarangay(Params params) throws  RemoteException;
+
 
 }

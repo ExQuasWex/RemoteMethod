@@ -66,4 +66,5 @@ public interface RemoteMethods extends Remote {
     public SecretDetails getSecurityQuestion(String hint1) throws  RemoteException;
 
 
+
 }
