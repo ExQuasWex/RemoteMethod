@@ -6,6 +6,7 @@ import Remote.Method.FamilyModel.Family;
 import clientModel.StaffInfo;
 import clientModel.StaffRegister;
 import global.Credentials;
+import global.SecretDetails;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -60,6 +61,9 @@ public interface RemoteMethods extends Remote {
     public String getMethodIdentifiers()  throws RemoteException;
 
     public Credentials getCredentials(String username, String ipAddress) throws RemoteException;
+
+    // Retrieving password
+    public SecretDetails getSecurityQuestion(String hint1) throws  RemoteException;
 
 
 }
