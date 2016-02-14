@@ -30,5 +30,8 @@ public interface AdminInterface extends Remote {
 
     public ArrayList getFamilyBarangay(Params params) throws  RemoteException;
 
+    public ArrayList getActiveAccounts( ) throws  RemoteException;
+
+
 
 }

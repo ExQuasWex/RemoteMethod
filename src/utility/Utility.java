@@ -1,5 +1,6 @@
 package utility;
 
+import AdminModel.ResponseModel.BarangayFamily;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
@@ -8,16 +9,19 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 
+import java.io.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
+import java.util.prefs.Preferences;
 import java.util.regex.Pattern;
 
 /**
@@ -27,10 +31,14 @@ public class Utility {
 
    private static  boolean isConfirmed;
     private static Alert alertBox ;
+    private static Preferences pref;
+    private  static  String ip;
+    private static String IPKEY = "serverip";
 
     public Utility(){
 
     }
+
 
     public static String getCurrentYear(){
         int year = Calendar.getInstance().get(Calendar.YEAR);
@@ -203,5 +211,82 @@ public class Utility {
 
         return month;
     }
+
+
+
+    public static List readObject()  {
+        // default deserialization
+        List list = null;
+
+        try {
+            FileInputStream fis = new FileInputStream("t.tmp");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+
+             list = (List) ois.readObject();
+
+//            barangayFamily.setName((String) list.get(0));
+//            barangayFamily.setSpouseName((String) list.get(1));
+//            barangayFamily.setDate((String) list.get(2));
+//            barangayFamily.setID((Integer) list.get(3));
+//            barangayFamily.setSelection((Boolean) list.get(4));
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+
+
+    public static boolean WriteObject( ArrayList list) {
+        boolean isSave = false;
+        // default serialization
+        try {
+            FileOutputStream fos = new FileOutputStream("t.tmp");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+            oos.writeObject(list);
+
+            oos.close();
+            isSave = true;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // write the object
+        return isSave;
+    }
+
+    // save ip address from preference
+    public static void SavePreference(String ipAdd){
+        ip = ipAdd;
+        pref.put(IPKEY, ip);
+    }
+
+    // get ip address from preference
+    public static String getPreference(){
+
+        if (pref == null){
+            createPreference();
+        }
+
+        try {
+            ip = pref.get(IPKEY, ip);
+        }catch (NullPointerException ex){
+            ip = "";
+            ex.printStackTrace();
+        }
+            return ip;
+    }
+
+
+    public static void  createPreference(){
+        pref =  Preferences.userRoot().node(String.valueOf(Utility.class));
+    }
+
 
 }

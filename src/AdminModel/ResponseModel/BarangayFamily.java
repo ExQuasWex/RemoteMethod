@@ -1,5 +1,10 @@
 package AdminModel.ResponseModel;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 /**
@@ -7,18 +12,27 @@ import java.io.Serializable;
  */
 public class BarangayFamily implements Serializable {
 
+
+    private static final long serialVersionUID = 287267931340084560L;
+
     private int ID;
     private String Name;
     private String spouseName;
     private String Date;
 
 
-    public BarangayFamily(int ID, String name, String spouseName, String date) {
+    public BarangayFamily() {
+
+    }
+
+    public BarangayFamily(int ID, String name, String spouseName, String date, boolean selection) {
         this.ID = ID;
         Name = name;
         this.spouseName = spouseName;
         Date = date;
     }
+
+
 
     public int getID() {
         return ID;
