@@ -51,10 +51,10 @@ public class Utility {
 
 
 
-
     public static void ClearComponents(Pane mainpane){
         for (Node node: mainpane.getChildren()){
 
+            // for clearing standard panes
                         if (node.getClass().equals(GridPane.class) || node.getClass().equals(VBox.class) ||
                                 node.getClass().equals(HBox.class) || node.getClass().equals(BorderPane.class)){
 
@@ -62,27 +62,22 @@ public class Utility {
 
                                     for (Node childrenNode : childrenPane.getChildren()){
 
-                                        if (childrenNode.getClass().equals(TextField.class)){
-                                            ((TextField) childrenNode).setText("");
-                                        }else if(childrenNode.getClass().equals(ComboBox.class)){
-                                            ((ComboBox) childrenNode).getSelectionModel().clearSelection();
-                                        }
+                                        clearNodes(childrenNode);
+                                        System.out.println("ClearComponents. Pane Classes");
+
                                     }
 
                         }else if (node.getClass().equals(ScrollPane.class)){
                                     ScrollPane scrollPane =  ((ScrollPane) node);
                                     Pane pane1 =  (Pane)scrollPane.getContent();
                                     ClearComponents(pane1);
+                            System.out.println("ClearComponents. scrollpane");
                         }
                         else{
                                 for (Node childrenNode : mainpane.getChildren()){
 
-                                    if (childrenNode.getClass().equals(TextField.class)){
-                                        ((TextField) childrenNode).setText("");
-                                    }else if (childrenNode.getClass().equals(ComboBox.class)){
-                                        ((ComboBox) childrenNode).getSelectionModel().clearSelection();
-
-                                    }
+                                    clearNodes(childrenNode);
+                                    System.out.println("ClearComponents. Node Classes");
 
                                 }
 
@@ -90,6 +85,21 @@ public class Utility {
 
         }
 
+    }
+
+    private static void clearNodes(Node childrenNode){
+
+        if (childrenNode.getClass().equals(TextField.class)) {
+                ((TextField) childrenNode).setText("");
+
+        } else if (childrenNode.getClass().equals(ComboBox.class)) {
+                ((ComboBox) childrenNode).getSelectionModel().clearSelection();
+        } else if(childrenNode.getClass().equals(DatePicker.class)){
+                ((DatePicker) childrenNode).setValue(null);
+
+        }else {
+            System.out.println(childrenNode.getClass());
+        }
     }
 
     public static String getCurrentDate(){
