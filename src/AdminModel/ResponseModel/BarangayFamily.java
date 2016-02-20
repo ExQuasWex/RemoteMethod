@@ -25,7 +25,7 @@ public class BarangayFamily implements Serializable {
 
     }
 
-    public BarangayFamily(int ID, String name, String spouseName, String date, boolean selection) {
+    public BarangayFamily(int ID, String name, String spouseName, String date) {
         this.ID = ID;
         Name = name;
         this.spouseName = spouseName;
