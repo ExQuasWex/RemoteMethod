@@ -2,11 +2,16 @@ package utility;
 
 import AdminModel.ResponseModel.BarangayFamily;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 
 import java.io.*;
@@ -29,11 +34,17 @@ import java.util.regex.Pattern;
  */
 public class Utility {
 
-   private static  boolean isConfirmed;
+     private static  boolean isConfirmed;
     private static Alert alertBox ;
     private static Preferences pref;
     private  static  String ip;
     private static String IPKEY = "serverip";
+    private static boolean isvalidate = false;
+
+
+    private static ObservableList<Node>  errorNodeList = FXCollections.observableArrayList();
+    ;
+
 
     public Utility(){
 
@@ -298,5 +309,203 @@ public class Utility {
         pref =  Preferences.userRoot().node(String.valueOf(Utility.class));
     }
 
+
+    public static boolean Validate(FamilyNodes familyNodes){
+
+        //top pane
+         TextField dateField  = familyNodes.getDateField();
+         DatePicker datePicker = familyNodes.getDatePicker();
+         TextField Name = familyNodes.getName();
+         TextField SpouseName = familyNodes.getSpouseName();
+         TextField agefield = familyNodes.getAgefield();
+         TextField addressF = familyNodes.getAddressF();
+         TextField yrResidency = familyNodes.getYrResidency();
+         TextField numofChildrenF = familyNodes.getNumofChildrenF();
+         String surveyedyr = familyNodes.getSurveyedyr();
+
+         ComboBox maritalCBox = familyNodes.getMaritalCBox();
+         ComboBox barangayCb = familyNodes.getBarangayCb();
+         ComboBox genderCB = familyNodes.getGenderCB();
+
+        // bottoom
+         ComboBox underEmployedCBox = familyNodes.getUnderEmployedCBox();
+         ComboBox otherIncomeCbox = familyNodes.getOtherIncomeCbox();
+         ComboBox ownershipCbox = familyNodes.getOwnershipCbox();
+         ComboBox below8kCbox = familyNodes.getBelow8kCbox();
+         ComboBox occupancyCBox = familyNodes.getOccupancyCBox();
+         ComboBox childrenSchlCBox = familyNodes.getChildrenSchlCBox();
+
+
+            int  yrNow = Calendar.getInstance().get(Calendar.YEAR);
+            String residencyYr = yrResidency.getText().trim();
+            String name = Name.getText().trim() + " ";
+            String spousename = SpouseName.getText().trim();
+            String age = agefield.getText();
+            String address =  addressF.getText();
+            String maritalStatus = null;
+
+
+        if (datePicker.getValue() != null){
+            surveyedyr = datePicker.getValue().toString();
+        }
+
+        ////////---- Year of residency ----////////
+
+        if(datePicker.getValue() == null ) {
+            showErrorMessage("Please add surveyed year in year field", "Error Information", datePicker);
+
+        }else  if (!Pattern.matches("^\\d{4}-\\d{2}-\\d{2}$",surveyedyr)){
+            showErrorMessage("Invalid Surveyed Year", "Error Information", datePicker);
+            System.out.println(yrNow);
+
+        } else if (datePicker.getValue().isAfter(LocalDate.parse(Utility.getCurrentDate()))) {
+            System.out.println(yrNow);
+            showErrorMessage("Invalid surveyed datee, the date you insert is later than the current date", "Error Information", datePicker);
+
+        }
+        ////////---- Year of residency ----////////
+        else if (residencyYr.equals("")) {
+            showErrorMessage("Please add year of residency in residency field", "Error Information", yrResidency);
+        }
+        else if (!Pattern.matches("^[\\d]{4}+",residencyYr)){
+            showErrorMessage("Invalid year of residency", "Error Information", yrResidency);
+        }
+        else if (Integer.parseInt(residencyYr) > yrNow){
+            showErrorMessage("Invalid year of residency, year of residency is later than the current year", "Error Information",yrResidency);
+        }
+        ////////---- Marital Status ----////////
+        else if (maritalCBox.getSelectionModel().isEmpty()){
+            showErrorMessage("Please select marital status", "Error Information",maritalCBox);
+        }
+        ////////---- Barangay ----////////
+        else if (barangayCb.getSelectionModel().isEmpty()){
+            showErrorMessage("Please select barangay", "Error Information",barangayCb);
+        }
+        ////////---- Gender ----////////
+        else if (genderCB.getSelectionModel().isEmpty()){
+            showErrorMessage("Please select Gender", "Error Information",genderCB);
+        }                    ////////---- Age ----////////
+        else if (age.equals("")){
+            showErrorMessage("Please add Age in age field", "Error Information", agefield);
+        }
+        ////////---- Name ----////////
+        else if (Name.getText().trim().equals("") ){
+
+            showErrorMessage("Please add name in name fields", "Error Information", Name);
+        }
+        else if (!Pattern.matches("^[A-Za-z\\s]+",name)){
+
+            showErrorMessage("Please remove any digit or any special character in name fields", "Error Information", Name);
+        }
+        ////////---- Spouse Name ----////////
+        else if (SpouseName.getText().trim().equals("") && (maritalCBox.getSelectionModel().getSelectedItem().toString().equals("Married")||
+                maritalCBox.getSelectionModel().getSelectedItem().toString().equals("Live-in"))){
+
+            errorNodeList.add(SpouseName);
+            showErrorMessage("Please add spouse name in spouse name fields", "Error Information", SpouseName);
+
+        }
+        ////////---- Address ----////////
+        else if (address.trim().equals("")) {
+            showErrorMessage("Please add address in address field", "Error Information", addressF);
+        }
+        else if (!Pattern.matches("^[a-zA-Z0-9\\.\\-\\s]+",address)){
+            showErrorMessage("Invalid Address in address field","Error Information",addressF);
+        }else if (otherIncomeCbox.getSelectionModel().isEmpty()){
+            showErrorMessage("Other income resource option is empty", "Error Information", otherIncomeCbox);
+        }else if (below8kCbox.getSelectionModel().isEmpty()){
+            showErrorMessage("Below eight thousand option is empty","Error Information",below8kCbox);
+
+        }else if (ownershipCbox.getSelectionModel().isEmpty()){
+            showErrorMessage("Ownership option is empty","Error Information",ownershipCbox);
+
+        }
+        else if (occupancyCBox.getSelectionModel().isEmpty()){
+            showErrorMessage("Occupancy option is empty","Error Information",occupancyCBox);
+
+        }
+        else if (underEmployedCBox.getSelectionModel().isEmpty() && occupancyCBox.getSelectionModel().getSelectedItem().equals("Employed")){
+            showErrorMessage("UnderEmployed option is empty","Error Information",underEmployedCBox);
+
+        }
+        else if (childrenSchlCBox.getSelectionModel().isEmpty()){
+            int children = Integer.parseInt(numofChildrenF.getText());
+            if (children == 0){
+                isvalidate = true;
+            }else if (children >= 1){
+                showErrorMessage("Children in school option is empty","Error Information",childrenSchlCBox);
+            }
+
+        }
+        else {
+            isvalidate = true;
+        }
+
+        return isvalidate;
+
+    }
+
+    private static void showErrorMessage(String msg,String title,Node node) {
+
+        isvalidate = false;
+
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText(null);
+        alert.setTitle(title);
+        alert.setContentText(msg);
+
+        errorNodeList.add(node);
+
+        // adding some red highligt color
+        for (Node nodes : errorNodeList) {
+            if (nodes.getClass().equals(ComboBox.class) ){
+                nodes.getStyleClass().add("combo-box-error");
+
+            }else{
+                nodes.getStyleClass().add("text-field-error");
+            }
+        }
+
+        /*
+         adding mouse event listeners to nodes
+         which removes the red highlighten or focused
+          */
+        for (Node nodee : errorNodeList){
+            nodee.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if (nodee.getClass().equals(ComboBox.class) ){
+                        nodee.getStyleClass().remove("combo-box-error");
+                        errorNodeList.remove(nodee);
+
+                    }else {
+                        nodee.getStyleClass().remove("text-field-error");
+                        errorNodeList.remove(nodee);
+
+                    }
+                }
+            });
+
+            // return to normal color after being focused
+            nodee.focusedProperty().addListener(new ChangeListener<Boolean>() {
+                @Override
+                public void changed(ObservableValue<? extends Boolean> observable, Boolean outFocused, Boolean Focused) {
+                    if (Focused){
+                        if (nodee.getClass().equals(ComboBox.class) ){
+                            nodee.getStyleClass().remove("combo-box-error");
+                            errorNodeList.remove(nodee);
+
+                        }else {
+                            nodee.getStyleClass().remove("text-field-error");
+                            errorNodeList.remove(nodee);
+
+                        }
+                    }
+                }
+            });
+        }
+
+        alert.show();
+    }
 
 }
