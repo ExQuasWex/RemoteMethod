@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.*;
@@ -345,6 +346,7 @@ public class Utility {
             String maritalStatus = null;
 
 
+
         if (datePicker.getValue() != null){
             surveyedyr = datePicker.getValue().toString();
         }
@@ -401,7 +403,6 @@ public class Utility {
         else if (SpouseName.getText().trim().equals("") && (maritalCBox.getSelectionModel().getSelectedItem().toString().equals("Married")||
                 maritalCBox.getSelectionModel().getSelectedItem().toString().equals("Live-in"))){
 
-            errorNodeList.add(SpouseName);
             showErrorMessage("Please add spouse name in spouse name fields", "Error Information", SpouseName);
 
         }
