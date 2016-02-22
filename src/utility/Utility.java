@@ -75,7 +75,6 @@ public class Utility {
                                     for (Node childrenNode : childrenPane.getChildren()){
 
                                         clearNodes(childrenNode);
-                                        System.out.println("ClearComponents. Pane Classes");
 
                                     }
 
@@ -83,13 +82,11 @@ public class Utility {
                                     ScrollPane scrollPane =  ((ScrollPane) node);
                                     Pane pane1 =  (Pane)scrollPane.getContent();
                                     ClearComponents(pane1);
-                            System.out.println("ClearComponents. scrollpane");
                         }
                         else{
                                 for (Node childrenNode : mainpane.getChildren()){
 
                                     clearNodes(childrenNode);
-                                    System.out.println("ClearComponents. Node Classes");
 
                                 }
 
@@ -109,10 +106,9 @@ public class Utility {
         } else if(childrenNode.getClass().equals(DatePicker.class)){
                 ((DatePicker) childrenNode).setValue(null);
 
-        }else {
-            System.out.println(childrenNode.getClass());
         }
-    }
+
+}
 
     public static String getCurrentDate(){
         LocalDate currentDate = LocalDate.now();
@@ -139,7 +135,10 @@ public class Utility {
     public static void closeConnection(Connection connection){
 
         try {
-            connection.close();
+
+            if (connection != null){
+                connection.close();
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -234,54 +233,6 @@ public class Utility {
         return month;
     }
 
-
-
-    public static List readObject()  {
-        // default deserialization
-        List list = null;
-
-        try {
-            FileInputStream fis = new FileInputStream("t.tmp");
-            ObjectInputStream ois = new ObjectInputStream(fis);
-
-             list = (List) ois.readObject();
-
-//            barangayFamily.setName((String) list.get(0));
-//            barangayFamily.setSpouseName((String) list.get(1));
-//            barangayFamily.setDate((String) list.get(2));
-//            barangayFamily.setID((Integer) list.get(3));
-//            barangayFamily.setSelection((Boolean) list.get(4));
-
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return list;
-    }
-
-
-    public static boolean WriteObject( ArrayList list) {
-        boolean isSave = false;
-        // default serialization
-        try {
-            FileOutputStream fos = new FileOutputStream("t.tmp");
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-
-            oos.writeObject(list);
-
-            oos.close();
-            isSave = true;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        // write the object
-        return isSave;
-    }
 
     // save ip address from preference
     public static void SavePreference(String ipAdd){

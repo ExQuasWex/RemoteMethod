@@ -65,6 +65,6 @@ public interface RemoteMethods extends Remote {
     // Retrieving password
     public SecretDetails getSecurityQuestion(String hint1) throws  RemoteException;
 
-
+    public boolean UpdateFamilyInformation(Family family) throws  RemoteException;
 
 }
