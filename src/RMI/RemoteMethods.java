@@ -3,6 +3,7 @@ package RMI;
 import AdminModel.Params;
 import AdminModel.RequestAccounts;
 import Remote.Method.FamilyModel.Family;
+import clientModel.ClientEntries;
 import clientModel.StaffInfo;
 import clientModel.StaffRegister;
 import global.Credentials;
@@ -66,5 +67,8 @@ public interface RemoteMethods extends Remote {
     public SecretDetails getSecurityQuestion(String hint1) throws  RemoteException;
 
     public boolean UpdateFamilyInformation(Family family) throws  RemoteException;
+
+    public void getClientEntries(int ClientID) throws  RemoteException;
+
 
 }
