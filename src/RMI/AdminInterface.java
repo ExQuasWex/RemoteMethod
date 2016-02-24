@@ -20,7 +20,7 @@ public interface AdminInterface extends Remote {
 
     public ResponseCompareOverview getCompareOverViewData(Params params, String type) throws RemoteException;
 
-    public ArrayList getCompareSpecificData(Params params, String type) throws RemoteException;
+    public ResponseCompareOverview getCompareSpecificData(Params params, String type) throws RemoteException;
 
     public ArrayList getSpecificOverViewData(Params params, String type) throws RemoteException;
 
