@@ -459,6 +459,65 @@ public class Utility {
 
         alert.show();
     }
+    // get the month of the String
+    private static String parseDate(String date) {
+        String month;
+        month = date.substring(5, date.length() - 3);
+        return month;
+    }
+
+    public static String convertIntMonth(String date) {
+        String Month = parseDate(date);
+
+        String month = null;
+
+        switch (Month) {
+            case "01":
+                month = "January";
+                break;
+            case "02":
+                month = "February";
+                break;
+            case "03":
+                month = "March";
+                break;
+            case "04":
+                month = "April";
+                break;
+            case "05":
+                month = "May";
+                break;
+            case "06":
+                month = "June";
+                break;
+            case "07":
+                month = "July";
+                break;
+            case "08":
+                month = "August";
+                break;
+            case "09":
+                month = "September";
+                break;
+            case "10":
+                month = "October";
+                break;
+            case "11":
+                month = "November";
+                break;
+            case "12":
+                month = "December";
+                break;
+
+        }
+
+        return month;
+    }
+   // 2016-02-01 = 2016-02
+    public static String subStringDate(String date ){
+        String modDate = date.substring(0, date.length() - 3);
+        return modDate;
+    }
 
 
 }
