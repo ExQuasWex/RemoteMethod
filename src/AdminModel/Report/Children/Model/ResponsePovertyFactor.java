@@ -11,12 +11,27 @@ public class ResponsePovertyFactor implements Serializable{
     private int Unemployed, Underemployed, NoOtherIncome,
     BelowMinimun, NoShelter;
 
+    private String month;
+
+    public ResponsePovertyFactor(int unemployed, int underemployed, int noOtherIncome, int belowMinimun, int noShelter, String month) {
+        Unemployed = unemployed;
+        Underemployed = underemployed;
+        NoOtherIncome = noOtherIncome;
+        BelowMinimun = belowMinimun;
+        NoShelter = noShelter;
+        this.month = month;
+    }
+
     public ResponsePovertyFactor(int unemployed, int underemployed, int noOtherIncome, int belowMinimun, int noShelter) {
         Unemployed = unemployed;
         Underemployed = underemployed;
         NoOtherIncome = noOtherIncome;
         BelowMinimun = belowMinimun;
         NoShelter = noShelter;
+    }
+
+    public String getMonth() {
+        return month;
     }
 
     public int getUnemployed() {

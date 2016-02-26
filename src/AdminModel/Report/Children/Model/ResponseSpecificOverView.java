@@ -1,11 +1,12 @@
 package AdminModel.Report.Children.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by Didoy on 2/26/2016.
  */
-public class ResponseSpecificOverView {
+public class ResponseSpecificOverView implements Serializable {
 
 
     ArrayList monthLyPopulationList;

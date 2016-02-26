@@ -1,9 +1,11 @@
 package AdminModel.Report.Children.Model;
 
+import java.io.Serializable;
+
 /**
  * Created by Didoy on 2/26/2016.
  */
-public class ResponseMonthlyPovertyRate {
+public class ResponseMonthlyPovertyRate implements Serializable {
 
     String month;
     int population = 0;

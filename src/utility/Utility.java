@@ -224,7 +224,6 @@ public class Utility {
                 break;
             case "December": month =  12;
                 break;
-
         }
 
         return month;
@@ -252,7 +251,6 @@ public class Utility {
         }
             return ip;
     }
-
 
     public static void  createPreference(){
         pref =  Preferences.userRoot().node(String.valueOf(Utility.class));
@@ -456,13 +454,14 @@ public class Utility {
 
         alert.show();
     }
-    // get the month of the String
+    // 2016-02-01 becomes 02
     private static String parseDate(String date) {
         String month;
         month = date.substring(5, date.length() - 3);
         return month;
     }
 
+    // Convert 2 digit numbers to String month value ex. 01 = January
     public static String convertIntMonth(String date) {
         String Month = parseDate(date);
 
