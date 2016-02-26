@@ -165,15 +165,12 @@ public class Utility {
                     alertBox.setHeaderText(null);
                     alertBox.show();
         }
-
     }
 
     /*
             Not thread safe! make sure to
             only use this method when it will run on
             FX thread
-
-
      */
     public static boolean showConfirmationMessage(String message, Alert.AlertType alertType)  {
         isConfirmed = false;
