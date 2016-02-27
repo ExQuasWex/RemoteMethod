@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 public interface RemoteMethods extends Remote {
 
-    // use to login admimn or encode/client
+    // use to login admin or encode/client
     public StaffInfo Login(String user, String pass, String ip, int port, String REMOTE_ID) throws RemoteException;
 
     // check if connected to the database

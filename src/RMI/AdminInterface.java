@@ -1,8 +1,9 @@
 package RMI;
 
 import AdminModel.Params;
-import AdminModel.Report.Children.Model.ResponseCompareOverview;
-import AdminModel.Report.Children.Model.ResponseSpecificOverView;
+import AdminModel.Report.Parent.Children.Model.ResponseCompareOverview;
+import AdminModel.Report.Parent.Model.ResponseSpecific;
+import AdminModel.Report.Parent.Model.ResponseSpecificOverView;
 import AdminModel.Report.Parent.Model.ResponseOverviewReport;
 
 import java.rmi.Remote;
@@ -25,7 +26,7 @@ public interface AdminInterface extends Remote {
 
     public ResponseSpecificOverView getSpecificOverViewData(Params params, String type) throws RemoteException;
 
-    public ArrayList getSpecific(Params params, String type) throws RemoteException;
+    public ResponseSpecific getSpecific(Params params, String type) throws RemoteException;
 
     public ArrayList getYears() throws RemoteException;
 

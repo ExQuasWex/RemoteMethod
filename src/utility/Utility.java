@@ -44,8 +44,6 @@ public class Utility {
 
 
     private static ObservableList<Node>  errorNodeList = FXCollections.observableArrayList();
-    ;
-
 
     public Utility(){
 
@@ -60,7 +58,6 @@ public class Utility {
         int year = Calendar.getInstance().get(Calendar.YEAR);
         return  year;
     }
-
 
 
     public static void ClearComponents(Pane mainpane){
@@ -455,15 +452,14 @@ public class Utility {
         alert.show();
     }
     // 2016-02-01 becomes 02
-    private static String parseDate(String date) {
+    public static String parseDate(String date) {
         String month;
         month = date.substring(5, date.length() - 3);
         return month;
     }
 
     // Convert 2 digit numbers to String month value ex. 01 = January
-    public static String convertIntMonth(String date) {
-        String Month = parseDate(date);
+    public static String rebirtDigitalMonth(String Month) {
 
         String month = null;
 
@@ -508,6 +504,50 @@ public class Utility {
         }
 
         return month;
+    }
+    // convert January to 01 so on..
+    public static String DigitalizeMonth(String month){
+
+        switch (month) {
+            case "January":
+                month = "01";
+                break;
+            case "February":
+                month = "02";
+                break;
+            case "March":
+                month = "03";
+                break;
+            case "April":
+                month = "04";
+                break;
+            case "May":
+                month = "05";
+                break;
+            case "June":
+                month = "06";
+                break;
+            case "July":
+                month = "07";
+                break;
+            case "August":
+                month = "08";
+                break;
+            case "September":
+                month = "09";
+                break;
+            case "October":
+                month = "10";
+                break;
+            case "November":
+                month = "11";
+                break;
+            case "December":
+                month = "12";
+                break;
+        }
+            return month;
+
     }
    // 2016-02-01 = 2016-02
     public static String subStringDate(String date ){
