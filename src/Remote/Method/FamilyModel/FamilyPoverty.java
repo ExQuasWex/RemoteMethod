@@ -1,6 +1,8 @@
 package Remote.Method.FamilyModel;
 
+import ListModels.ChildrenSchoolCategory;
 import PriorityModels.PriorityLevel;
+import PriorityModels.PriorityType;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -15,17 +17,44 @@ public class FamilyPoverty implements Serializable{
     private String ownership;
     private String occupancy;
     private String isunderEmployed;
-    private String childreninSchool;
+    private ChildrenSchoolCategory childreninSchool;
     private LocalDate dateissued;
     private int month;
-    private PriorityLevel priorityLevel;
 
+    private PriorityLevel priorityLevel;
+    private PriorityLevel jobPriorityLevel;
+    private PriorityLevel homePriorityLevel;
+    private PriorityType priorityType;
+
+    public PriorityType getPriorityType() {
+        return priorityType;
+    }
+
+    public void setPriorityType(PriorityType priorityType) {
+        this.priorityType = priorityType;
+    }
+
+    public PriorityLevel getJobPriorityLevel() {
+        return jobPriorityLevel;
+    }
+
+    public void setJobPriorityLevel(PriorityLevel jobPriorityLevel) {
+        this.jobPriorityLevel = jobPriorityLevel;
+    }
+
+    public PriorityLevel getHomePriorityLevel() {
+        return homePriorityLevel;
+    }
+
+    public void setHomePriorityLevel(PriorityLevel homePriorityLevel) {
+        this.homePriorityLevel = homePriorityLevel;
+    }
 
     public FamilyPoverty(){
 
     }
 
-    public FamilyPoverty(String hasotherIncome, String isbelow8k, String ownership, String occupancy, String isunderEmployed, String childreninSchool, LocalDate dateissued, int month) {
+    public FamilyPoverty(String hasotherIncome, String isbelow8k, String ownership, String occupancy, String isunderEmployed, ChildrenSchoolCategory childreninSchool, LocalDate dateissued, int month) {
         this.hasotherIncome = hasotherIncome;
         this.isbelow8k = isbelow8k;
         this.ownership = ownership;
@@ -108,11 +137,11 @@ public class FamilyPoverty implements Serializable{
         this.isunderEmployed = isunderEmployed;
     }
 
-    public String getChildreninSchool() {
+    public ChildrenSchoolCategory getChildreninSchool() {
         return childreninSchool;
     }
 
-    public void setChildreninSchool(String childreninSchool) {
+    public void setChildreninSchool(ChildrenSchoolCategory childreninSchool) {
         this.childreninSchool = childreninSchool;
     }
 }
