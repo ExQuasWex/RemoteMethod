@@ -8,6 +8,7 @@ public enum PriorityLevel {
     Critical,
     High,
     Medium,
-    Low
+    Low,
+    Undetermined
 
 }

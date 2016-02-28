@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * Created by Didoy on 11/25/2015.
  */
 public interface AdminInterface extends Remote {
-    public ArrayList getBarangayData() throws RemoteException;
+    public ArrayList getBarangayData(String year) throws RemoteException;
     public boolean checkConnectDB()throws RemoteException;
 
     // ================= admin report methods  ======================== //
