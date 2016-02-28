@@ -1,4 +1,4 @@
-package AdminModel.Report.Parent.Model;
+package AdminModel.Report.Parent;
 
 import java.io.Serializable;
 import java.util.ArrayList;

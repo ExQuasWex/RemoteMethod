@@ -24,6 +24,21 @@ public class FamilyInfo implements Serializable{
 
     private int familyId;
 
+
+    public FamilyInfo(int id, int yrResidency,int numOfChildren, String name,
+                      String spouseName, String age, String  maritalstatus, String gender)  {
+
+        setfamilyId(id);
+         residencyYr = yrResidency;
+         numofChildren = numOfChildren;
+        this.name = name;
+        this.spouseName = spouseName;
+        this.age = age;
+        this.maritalStatus = maritalstatus;
+        this.gender = gender;
+
+    }
+
     public FamilyInfo(int clientID, String inputDate, LocalDate surveyedYr, int residencyYr, int numofChildren, String name,
                       String spouseName, String age, String maritalStatus, String barangay, String gender, String address) {
        this.clientID = clientID;

@@ -1,10 +1,10 @@
 package RMI;
 
 import AdminModel.Params;
-import AdminModel.Report.Parent.Children.Model.ResponseCompareOverview;
-import AdminModel.Report.Parent.Model.ResponseOverviewReport;
-import AdminModel.Report.Parent.Model.ResponseSpecific;
-import AdminModel.Report.Parent.Model.ResponseSpecificOverView;
+import AdminModel.Report.Parent.ResponseCompareOverview;
+import AdminModel.Report.Parent.ResponseOverviewReport;
+import AdminModel.Report.Parent.ResponseSpecific;
+import AdminModel.Report.Parent.ResponseSpecificOverView;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -33,7 +33,6 @@ public interface AdminInterface extends Remote {
     public ArrayList getFamilyBarangay(Params params) throws  RemoteException;
 
     public ArrayList getActiveAccounts( ) throws  RemoteException;
-
 
 
 }

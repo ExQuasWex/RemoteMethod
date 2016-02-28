@@ -14,7 +14,7 @@ public class Params implements Serializable{
     private String Barangay1;
     private String Barangay2;
 
-    private String Strmonth;
+    String date;
 
     public int getMaxYear() {
         return MaxYear;
@@ -36,14 +36,13 @@ public class Params implements Serializable{
         Barangay2 = barangay2;
     }
 
-    public Params(int year, String month, String barangay1) {
-        Year = year;
-        this.Strmonth = month;
-        Barangay1 = barangay1;
-    }
+    public Params(String date , String barangay1) {
+        this.date = date;
+        this.Barangay1 = barangay1;
 
-    public String getStrmonth() {
-        return Strmonth;
+    }
+    public String getDate() {
+        return date;
     }
 
     public int getYear() {

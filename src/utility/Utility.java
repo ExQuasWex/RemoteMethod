@@ -452,7 +452,7 @@ public class Utility {
         alert.show();
     }
     // 2016-02-01 becomes 02
-    public static String parseDate(String date) {
+    public static String DateToMonth(String date) {
         String month;
         month = date.substring(5, date.length() - 3);
         return month;
@@ -553,6 +553,13 @@ public class Utility {
     public static String subStringDate(String date ){
         String modDate = date.substring(0, date.length() - 3);
         return modDate;
+    }
+
+    // month = Alphabet month such as January
+    public static String concatinateYearAndMonth(String year, String month){
+        String Month = DigitalizeMonth(month);
+        String Date = year + "-" + Month;
+        return Date;
     }
 
 
