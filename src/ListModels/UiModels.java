@@ -1,5 +1,6 @@
 package ListModels;
 
+import AdminModel.Enum.FactorCategoryParameter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -70,6 +71,13 @@ public class UiModels {
         ArrayList list = new ArrayList(Arrays.asList(ChildrenSchoolCategory.values()));
         ObservableList<String> childrenCategoriesList = FXCollections.observableArrayList(list);
         return  childrenCategoriesList;
+    }
+
+    public static ObservableList<String> getFactortType(){
+        ArrayList list = new ArrayList(Arrays.asList(FactorCategoryParameter.values()));
+        ObservableList<String> factortCat = FXCollections.observableArrayList(list);
+        return  factortCat;
+
     }
 
 

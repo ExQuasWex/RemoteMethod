@@ -54,6 +54,7 @@ public class PriorityLevelCalculator {
 
     public static PriorityLevel getJobPriorityLevel(FamilyPoverty familyPoverty, int children){
         int factors = 0;
+
         PriorityLevel priorityLevel = PriorityLevel.Low;
 
         String occupancy = familyPoverty.getOccupancy();

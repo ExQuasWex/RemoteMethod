@@ -20,7 +20,6 @@ public class BarangayFamily implements Serializable {
     private String spouseName;
     private String Date;
 
-
     public BarangayFamily() {
 
     }

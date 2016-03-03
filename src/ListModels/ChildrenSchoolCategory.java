@@ -15,9 +15,9 @@ public enum ChildrenSchoolCategory {
             return "Vocational";
         }
     },
-    INSCHOOL{
+    SCHOOL{
         public String toString(){
-            return "In-School";
+            return "School";
         }
     },
     SOME{

@@ -1,5 +1,6 @@
 package RMI;
 
+import AdminModel.Enum.ReportCategoryMethod;
 import AdminModel.Params;
 import AdminModel.Report.Parent.ResponseCompareOverview;
 import AdminModel.Report.Parent.ResponseOverviewReport;
@@ -30,7 +31,7 @@ public interface AdminInterface extends Remote {
 
     public ArrayList getYears() throws RemoteException;
 
-    public ArrayList getFamilyBarangay(Params params) throws  RemoteException;
+    public ArrayList getFamilyBarangay(Params params, ReportCategoryMethod method) throws  RemoteException;
 
     public ArrayList getActiveAccounts( ) throws  RemoteException;
 
