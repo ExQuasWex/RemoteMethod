@@ -6,6 +6,7 @@ import AdminModel.Report.Parent.ResponseCompareOverview;
 import AdminModel.Report.Parent.ResponseOverviewReport;
 import AdminModel.Report.Parent.ResponseSpecific;
 import AdminModel.Report.Parent.ResponseSpecificOverView;
+import Remote.Method.FamilyModel.Family;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -35,5 +36,6 @@ public interface AdminInterface extends Remote {
 
     public ArrayList getActiveAccounts( ) throws  RemoteException;
 
+    public boolean addHistoryToFamily(Family family) throws RemoteException;
 
 }
