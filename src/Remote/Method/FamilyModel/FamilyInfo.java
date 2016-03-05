@@ -12,6 +12,23 @@ public class FamilyInfo implements Serializable{
     private LocalDate surveyedYr;
     private int residencyYr;
     private int numofChildren;
+    private int barangayID = 0;
+
+    public int getBarangayID() {
+        return barangayID;
+    }
+
+    public void setBarangayID(int barangayID) {
+        this.barangayID = barangayID;
+    }
+
+    public int getFamilyId() {
+        return familyId;
+    }
+
+    public void setFamilyId(int familyId) {
+        this.familyId = familyId;
+    }
 
     private String name;
     private String spouseName;

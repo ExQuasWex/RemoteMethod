@@ -1,11 +1,12 @@
 package Remote.Method.FamilyModel;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
  * Created by reiner on 3/3/2016.
  */
-public class FamilyHistory {
+public class FamilyHistory implements Serializable{
 
     int id ;
     int familyid;
