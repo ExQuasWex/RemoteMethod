@@ -38,4 +38,6 @@ public interface AdminInterface extends Remote {
 
     public boolean addHistoryToFamily(Family family) throws RemoteException;
 
+    public void shutDownServer() throws RemoteException;
+
 }

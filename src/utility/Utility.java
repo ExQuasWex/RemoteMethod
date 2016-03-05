@@ -249,8 +249,9 @@ public class Utility {
             return ip;
     }
 
-    public static void  createPreference(){
+    public static Preferences  createPreference(){
         pref =  Preferences.userRoot().node(String.valueOf(Utility.class));
+        return pref;
     }
 
 
