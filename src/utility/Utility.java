@@ -183,10 +183,10 @@ public class Utility {
 
                        if (result.get() == ButtonType.OK) {
                            isConfirmed = true;
-                           System.out.println("thread true");
-                       } else {
+                           System.out.println("TRUE");
+                       } else if (result.get() == ButtonType.CANCEL){
                            isConfirmed = false;
-                           System.out.println("thread false");
+                           System.out.println("False");
                        }
        }
 

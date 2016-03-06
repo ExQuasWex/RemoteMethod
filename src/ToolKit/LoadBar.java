@@ -23,23 +23,25 @@ public class LoadBar {
 
 
     public static void createProgressbar(double size){
-         percent = 1/size;
-         SIZE = size;
-         valueProperty.set(0);
-         pb.setPrefWidth(300);
-         pb.progressProperty().bind(valueProperty);
+        if (size > 0){
+            percent = 1/size;
+            SIZE = size;
+            valueProperty.set(0);
+            pb.setPrefWidth(300);
+            pb.progressProperty().bind(valueProperty);
 
 
-        HBox hBox = new HBox(5);
-         hBox.setPadding(new Insets(10));
-         hBox.setAlignment(Pos.CENTER);
-         hBox.getChildren().addAll(pb, text);
+            HBox hBox = new HBox(5);
+            hBox.setPadding(new Insets(10));
+            hBox.setAlignment(Pos.CENTER);
+            hBox.getChildren().addAll(pb, text);
 
-         Scene  scene = new Scene(hBox);
+            Scene  scene = new Scene(hBox);
 
-         stage.setResizable(false);
-         stage.setScene(scene);
-         stage.show();
+            stage.setResizable(false);
+            stage.setScene(scene);
+            stage.show();
+        }
     }
 
     public static boolean  updateValue() {

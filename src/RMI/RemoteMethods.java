@@ -49,15 +49,6 @@ public interface RemoteMethods extends Remote {
     // get the list of request/pending accounts
     public ArrayList getRequestAccounts() throws RemoteException;
 
-    // appprove pending/request account
-    public boolean Approve(RequestAccounts ra) throws RemoteException;
-
-    // appprove pending/request account as Admin
-    public boolean ApproveAdmin(RequestAccounts ra) throws RemoteException;
-
-    // Reject pending/request account
-    public boolean Reject(RequestAccounts ra) throws RemoteException;
-
     // helps to identify if the search or notify was used in the server need to change
     public String getMethodIdentifiers()  throws RemoteException;
 

@@ -1,5 +1,7 @@
 package RMI;
 
+import AdminModel.Enum.AccountApproveStatus;
+import AdminModel.Enum.AccountStatus;
 import AdminModel.Enum.ReportCategoryMethod;
 import AdminModel.Params;
 import AdminModel.Report.Parent.ResponseCompareOverview;
@@ -40,5 +42,9 @@ public interface AdminInterface extends Remote {
     public boolean addHistoryToFamily(Family family) throws RemoteException;
 
     public File getBackUp() throws RemoteException;
+
+    public boolean updateAccountStatus(int id, AccountStatus status) throws RemoteException;
+
+    public boolean approveAccount(int id, AccountApproveStatus status) throws RemoteException;
 
 }
