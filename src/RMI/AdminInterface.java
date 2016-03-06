@@ -47,4 +47,6 @@ public interface AdminInterface extends Remote {
 
     public boolean approveAccount(int id, AccountApproveStatus status) throws RemoteException;
 
+    public boolean isTheAccountOnline(String username) throws RemoteException;
+
 }

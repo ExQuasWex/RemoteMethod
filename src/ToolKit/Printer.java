@@ -1,5 +1,6 @@
 package ToolKit;
 
+import javafx.print.PageLayout;
 import javafx.print.PrinterJob;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
@@ -21,12 +22,17 @@ public class Printer {
     public static void Print(Node node, Window window){
 
         PrinterJob printer =    getPrinter();
-        if(printer.showPrintDialog(window) && printer.printPage(node)){
-            printer.endJob();
-            Utility.showMessageBox("Successfully completed printing", Alert.AlertType.ERROR);
+        if (node == null){
+            Utility.showMessageBox("Cane print empty node", Alert.AlertType.ERROR);
 
         }else {
-            Utility.showMessageBox("Unable to print Data", Alert.AlertType.ERROR);
+            if(printer.showPrintDialog(window) && printer.printPage(node)){
+                printer.endJob();
+                Utility.showMessageBox("Successfully completed printing", Alert.AlertType.ERROR);
+
+            }else {
+                Utility.showMessageBox("Unable to print Data", Alert.AlertType.ERROR);
+            }
         }
     }
 }
