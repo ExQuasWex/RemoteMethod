@@ -8,6 +8,7 @@ import AdminModel.Report.Parent.ResponseSpecific;
 import AdminModel.Report.Parent.ResponseSpecificOverView;
 import Remote.Method.FamilyModel.Family;
 
+import java.io.File;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -38,6 +39,6 @@ public interface AdminInterface extends Remote {
 
     public boolean addHistoryToFamily(Family family) throws RemoteException;
 
-    public void shutDownServer() throws RemoteException;
+    public File getBackUp() throws RemoteException;
 
 }

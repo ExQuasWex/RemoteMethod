@@ -10,12 +10,33 @@ public class ActiveAccounts implements Serializable{
     private int id;
     private String username;
     private String name;
+    private String requestStatus;
+    private String status;
 
 
-    public ActiveAccounts(int id, String username, String name) {
+    public String getRequestStatus() {
+        return requestStatus;
+    }
+
+    public void setRequestStatus(String requestStatus) {
+        this.requestStatus = requestStatus;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public ActiveAccounts(int id, String username, String name, String requestStatus, String status) {
         this.id = id;
         this.username = username;
         this.name = name;
+        this.requestStatus = requestStatus;
+        this.status = status;
+
     }
 
     public int getId() {
