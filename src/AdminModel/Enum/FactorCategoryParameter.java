@@ -26,9 +26,9 @@ public enum FactorCategoryParameter {
             return "UnderEmployed";
         }
     },
-    ILLEGAL_SETTLERS{
+    NO_HOME{
         public String toString(){
-            return "Illegal Settlers";
+            return "No Home";
         }
     }
 }
