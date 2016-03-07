@@ -12,15 +12,28 @@ public class BarangayData implements Serializable {
 
     String barangayName;
     int unresolvePopulation, resolvePopulation;
+    int  population;
     PriorityLevel priorityLevel;
     PriorityType priorityType;
 
-    public BarangayData(String barangayName, int unresolvePopulation, int resolvePopulation, PriorityLevel priorityLevel, PriorityType priorityType) {
+    public int getPopulation() {
+        return population;
+    }
+
+    public void setPopulation(int population) {
+        this.population = population;
+    }
+
+    public BarangayData(String barangayName, int population,  int unresolvePopulation, int resolvePopulation, PriorityLevel priorityLevel, PriorityType priorityType) {
         this.barangayName = barangayName;
         this.unresolvePopulation = unresolvePopulation;
         this.resolvePopulation = resolvePopulation;
         this.priorityLevel = priorityLevel;
         this.priorityType = priorityType;
+    }
+
+    public BarangayData(){
+
     }
 
     public String getBarangayName() {

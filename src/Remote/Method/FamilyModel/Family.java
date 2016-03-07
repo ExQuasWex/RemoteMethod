@@ -45,4 +45,5 @@ public class Family implements Serializable {
     public void setFamilypoverty(FamilyPoverty familypoverty) {
         this.familypoverty = familypoverty;
     }
+
 }
