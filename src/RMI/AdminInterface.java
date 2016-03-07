@@ -54,5 +54,8 @@ public interface AdminInterface extends Remote {
 
     public ArrayList getBarangayFamilyHistories(String barangayName, String date) throws RemoteException;
 
+    public ArrayList viewAllPeople(String barangayName, String date) throws RemoteException;
+
+
 
 }
