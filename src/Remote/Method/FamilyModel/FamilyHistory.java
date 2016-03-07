@@ -15,6 +15,15 @@ public class FamilyHistory implements Serializable{
     String action;
     boolean isRevoke;
     String revokeDescription;
+    String familyName;
+
+    public String getFamilyName() {
+        return familyName;
+    }
+
+    public void setFamilyName(String familyName) {
+        this.familyName = familyName;
+    }
 
     // this constructor used for after fetching history data of family
     public FamilyHistory(int id, int familyid, String date, String  adminName,

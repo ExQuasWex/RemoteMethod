@@ -13,6 +13,15 @@ public class FamilyInfo implements Serializable{
     private int residencyYr;
     private int numofChildren;
     private int barangayID = 0;
+    private int totalResolution = 0;
+
+    public int getTotalResolution() {
+        return totalResolution;
+    }
+
+    public void setTotalResolution(int totalResolution) {
+        this.totalResolution = totalResolution;
+    }
 
     public int getBarangayID() {
         return barangayID;
@@ -41,6 +50,9 @@ public class FamilyInfo implements Serializable{
 
     private int familyId;
 
+    public FamilyInfo(){
+
+    }
 
     public FamilyInfo(int id, int yrResidency,int numOfChildren, String name,
                       String spouseName, String age, String  maritalstatus, String gender)  {
@@ -58,6 +70,7 @@ public class FamilyInfo implements Serializable{
 
     public FamilyInfo(int clientID, String inputDate, LocalDate surveyedYr, int residencyYr, int numofChildren, String name,
                       String spouseName, String age, String maritalStatus, String barangay, String gender, String address) {
+
        this.clientID = clientID;
         this.inputDate = inputDate;
         this.surveyedYr = surveyedYr;

@@ -15,6 +15,15 @@ public class BarangayData implements Serializable {
     int  population;
     PriorityLevel priorityLevel;
     PriorityType priorityType;
+    int histories;
+
+    public int getHistories() {
+        return histories;
+    }
+
+    public void setHistories(int histories) {
+        this.histories = histories;
+    }
 
     public int getPopulation() {
         return population;

@@ -23,6 +23,8 @@ public class Printer {
     }
 
     public static void Print(Node node, Window window){
+    Node tobePrintNode = node;
+        Scale scale = null;
 
         if (node == null){
             Utility.showMessageBox("Cane print empty node", Alert.AlertType.ERROR);
@@ -30,26 +32,26 @@ public class Printer {
         }else {
 
                 PrinterJob printer = getPrinter();
-                printer.showPageSetupDialog(window);
 
                 if (printer != null) {
 
                     PageLayout pageLayout = printer.getPrinter().getDefaultPageLayout();
-                    double scaleX = pageLayout.getPrintableWidth() / node.getBoundsInParent().getWidth();
-                    double scaleY = pageLayout.getPrintableHeight() / node.getBoundsInParent().getHeight();
+                    double scaleX = pageLayout.getPrintableWidth() / tobePrintNode.getBoundsInParent().getWidth();
+                    double scaleY = pageLayout.getPrintableHeight() / tobePrintNode.getBoundsInParent().getHeight();
                     double minimumScale = Math.min(scaleX, scaleY);
-                    Scale scale = new Scale(minimumScale, minimumScale);
+                     scale = new Scale(minimumScale, minimumScale);
 
-                    node.getTransforms().add(scale);
+                    tobePrintNode.getTransforms().add(scale);
 
-                    boolean success = printer.printPage(node);
-                    if (success) {
+                    if (printer.showPrintDialog(window) && printer.printPage(pageLayout, tobePrintNode)) {
                         printer.endJob();
                         Utility.showMessageBox("Successfully completed printing", Alert.AlertType.ERROR);
                     }
-                } else {
+                  } else {
                  Utility.showMessageBox("Unable to print Data", Alert.AlertType.ERROR);
                     }
+            tobePrintNode.getTransforms().remove(scale);
+
         }
     }
 }

@@ -9,6 +9,7 @@ import AdminModel.Report.Parent.ResponseOverviewReport;
 import AdminModel.Report.Parent.ResponseSpecific;
 import AdminModel.Report.Parent.ResponseSpecificOverView;
 import Remote.Method.FamilyModel.Family;
+import javafx.collections.ObservableList;
 
 import java.io.File;
 import java.rmi.Remote;
@@ -48,5 +49,10 @@ public interface AdminInterface extends Remote {
     public boolean approveAccount(int id, AccountApproveStatus status) throws RemoteException;
 
     public boolean isTheAccountOnline(String username) throws RemoteException;
+
+    public ArrayList getFamilyDataByStatus(String barangayName, String date, String status) throws RemoteException;
+
+    public ArrayList getBarangayFamilyHistories(String barangayName, String date) throws RemoteException;
+
 
 }

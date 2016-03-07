@@ -75,9 +75,8 @@ private static DirectoryChooser directoryChooser = new DirectoryChooser();
 
     public static String showHistoryDialog(String text, String title){
         ObservableList opList = FXCollections.observableArrayList();
-        opList.add("A");
-        opList.add("B");
-        opList.add("C");
+        opList.add("Emergency Priority");
+        opList.add("Local Government");
 
         DialogPane dialogPane = new DialogPane();
         dialogPane.setPrefSize(300, 200);
