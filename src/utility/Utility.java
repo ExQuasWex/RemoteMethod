@@ -37,9 +37,7 @@ public class Utility {
 
      private static  boolean isConfirmed;
     private static Alert alertBox ;
-    private static Preferences pref;
-    private  static  String ip;
-    private static String IPKEY = "serverip";
+
     private static boolean isvalidate = false;
 
 
@@ -227,32 +225,6 @@ public class Utility {
     }
 
 
-    // save ip address from preference
-    public static void SavePreference(String ipAdd){
-        ip = ipAdd;
-        pref.put(IPKEY, ip);
-    }
-
-    // get ip address from preference
-    public static String getPreference(){
-
-        if (pref == null){
-            createPreference();
-        }
-
-        try {
-            ip = pref.get(IPKEY, ip);
-        }catch (NullPointerException ex){
-            ip = "";
-            ex.printStackTrace();
-        }
-            return ip;
-    }
-
-    public static Preferences  createPreference(){
-        pref =  Preferences.userRoot().node(String.valueOf(Utility.class));
-        return pref;
-    }
 
 
     public static boolean Validate(FamilyNodes familyNodes){

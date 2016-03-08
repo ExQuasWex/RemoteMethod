@@ -2,6 +2,7 @@ package DecisionSupport;
 
 import ListModels.ChildrenSchoolCategory;
 import PriorityModels.PriorityLevel;
+import Remote.Method.FamilyModel.FamilyHistory;
 import Remote.Method.FamilyModel.FamilyPoverty;
 
 /**
@@ -9,7 +10,7 @@ import Remote.Method.FamilyModel.FamilyPoverty;
  */
 public class PriorityLevelCalculator {
 
-    public static PriorityLevel getHomePriorityLevel(FamilyPoverty familyPoverty, int children){
+    public static PriorityLevel getHomePriorityLevel(FamilyPoverty familyPoverty,FamilyHistory familyHistory, int children){
         int factors = 0;
         PriorityLevel priorityLevel = PriorityLevel.Low;
 
@@ -44,6 +45,10 @@ public class PriorityLevelCalculator {
                 factors += 2;
             }
 
+            if (familyHistory != null && familyHistory.getAction().equals("HOME")){
+                factors = factors - 2;
+            }
+
             priorityLevel = calculatePriority(factors);
 
         }
@@ -52,7 +57,7 @@ public class PriorityLevelCalculator {
 
     }
 
-    public static PriorityLevel getJobPriorityLevel(FamilyPoverty familyPoverty, int children){
+    public static PriorityLevel getJobPriorityLevel(FamilyPoverty familyPoverty,FamilyHistory familyHistory, int children){
         int factors = 0;
 
         PriorityLevel priorityLevel = PriorityLevel.Low;
@@ -81,6 +86,11 @@ public class PriorityLevelCalculator {
         if (threshold.equals("No")){
             factors += 1;
         }
+
+        if (familyHistory != null && familyHistory.getAction().equals("JOB")){
+            factors = factors - 2;
+        }
+
 
         priorityLevel = calculatePriority(factors);
 

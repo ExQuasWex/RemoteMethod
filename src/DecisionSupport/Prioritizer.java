@@ -3,6 +3,7 @@ package DecisionSupport;
 import ListModels.ChildrenSchoolCategory;
 import PriorityModels.PriorityLevel;
 import PriorityModels.PriorityType;
+import Remote.Method.FamilyModel.FamilyHistory;
 import Remote.Method.FamilyModel.FamilyPoverty;
 
 import java.util.ArrayList;
@@ -14,11 +15,11 @@ public class Prioritizer {
 
     // optional data underemployed, childreninSchool
 
-   public static FamilyPoverty addPriorityLevel(FamilyPoverty familyPoverty, int children){
+   public static FamilyPoverty addPriorityLevel(FamilyPoverty familyPoverty,FamilyHistory familyHistory, int children){
        PriorityLevel priorityLevel = PriorityLevel.Low;
 
-       PriorityLevel jobPriorityLevel = PriorityLevelCalculator.getJobPriorityLevel(familyPoverty, children);
-       PriorityLevel homePriorityLevel = PriorityLevelCalculator.getHomePriorityLevel(familyPoverty, children);
+       PriorityLevel jobPriorityLevel = PriorityLevelCalculator.getJobPriorityLevel(familyPoverty, familyHistory, children);
+       PriorityLevel homePriorityLevel = PriorityLevelCalculator.getHomePriorityLevel(familyPoverty, familyHistory,  children);
 
 
        if (jobPriorityLevel == PriorityLevel.Low && homePriorityLevel ==  PriorityLevel.Low ){

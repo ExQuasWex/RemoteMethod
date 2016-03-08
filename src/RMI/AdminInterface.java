@@ -42,7 +42,7 @@ public interface AdminInterface extends Remote {
 
     public boolean addHistoryToFamily(Family family) throws RemoteException;
 
-    public File getBackUp() throws RemoteException;
+    public boolean getBackUp(String username) throws RemoteException;
 
     public boolean updateAccountStatus(int id, AccountStatus status) throws RemoteException;
 
