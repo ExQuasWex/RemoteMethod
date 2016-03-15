@@ -13,6 +13,9 @@ public class FamilyNodes {
     private TextField dateField;
     private DatePicker datePicker;
     private TextField Name;
+    private TextField LastName;
+    private TextField MiddleName;
+
     private TextField SpouseName;
     private TextField agefield;
     private TextField addressF;
@@ -32,10 +35,13 @@ public class FamilyNodes {
     private ComboBox occupancyCBox;
     private ComboBox childrenSchlCBox;
 
-    public FamilyNodes(TextField dateField, DatePicker datePicker, TextField name, TextField spouseName, TextField agefield, TextField addressF, TextField yrResidency, TextField numofChildrenF, String surveyedyr, ComboBox maritalCBox, ComboBox barangayCb, ComboBox genderCB, ComboBox underEmployedCBox, ComboBox otherIncomeCbox, ComboBox ownershipCbox, ComboBox below8kCbox, ComboBox occupancyCBox, ComboBox childrenSchlCBox) {
+    public FamilyNodes(TextField dateField, DatePicker datePicker, TextField name, TextField lastName, TextField middleName,
+                       TextField spouseName, TextField agefield, TextField addressF, TextField yrResidency, TextField numofChildrenF, String surveyedyr, ComboBox maritalCBox, ComboBox barangayCb, ComboBox genderCB, ComboBox underEmployedCBox, ComboBox otherIncomeCbox, ComboBox ownershipCbox, ComboBox below8kCbox, ComboBox occupancyCBox, ComboBox childrenSchlCBox) {
         this.dateField = dateField;
         this.datePicker = datePicker;
         Name = name;
+        LastName = lastName;
+        MiddleName = middleName;
         SpouseName = spouseName;
         this.agefield = agefield;
         this.addressF = addressF;
@@ -51,6 +57,14 @@ public class FamilyNodes {
         this.below8kCbox = below8kCbox;
         this.occupancyCBox = occupancyCBox;
         this.childrenSchlCBox = childrenSchlCBox;
+    }
+
+    public TextField getLastName() {
+        return LastName;
+    }
+
+    public TextField getMiddleName() {
+        return MiddleName;
     }
 
     public TextField getDateField() {

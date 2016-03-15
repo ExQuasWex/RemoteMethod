@@ -233,7 +233,10 @@ public class Utility {
          TextField dateField  = familyNodes.getDateField();
          DatePicker datePicker = familyNodes.getDatePicker();
          TextField Name = familyNodes.getName();
-         TextField SpouseName = familyNodes.getSpouseName();
+        TextField LastName = familyNodes.getLastName();
+        TextField MiddleName = familyNodes.getMiddleName();
+
+        TextField SpouseName = familyNodes.getSpouseName();
          TextField agefield = familyNodes.getAgefield();
          TextField addressF = familyNodes.getAddressF();
          TextField yrResidency = familyNodes.getYrResidency();
@@ -256,8 +259,10 @@ public class Utility {
             int  yrNow = Calendar.getInstance().get(Calendar.YEAR);
             String residencyYr = yrResidency.getText().trim();
             String name = Name.getText().trim() + " ";
-            String spousename = SpouseName.getText().trim();
-            String age = agefield.getText();
+             String lastName = LastName.getText().trim();
+             String middleName = MiddleName.getText().trim();
+
+        String age = agefield.getText();
             String address =  addressF.getText();
             String maritalStatus = null;
 
@@ -309,11 +314,27 @@ public class Utility {
         ////////---- Name ----////////
         else if (Name.getText().trim().equals("") ){
 
-            showErrorMessage("Please add name in name fields", "Error Information", Name);
+            showErrorMessage("Please add First name ", "Error Information", Name);
         }
         else if (!Pattern.matches("^[A-Za-z\\s]+",name)){
 
-            showErrorMessage("Please remove any digit or any special character in name fields", "Error Information", Name);
+            showErrorMessage("Please remove any digit or any special character in name field", "Error Information", Name);
+        }
+        else if (LastName.getText().trim().equals("") ){
+
+            showErrorMessage("Please add Last name ", "Error Information", LastName);
+        }
+        else if (!Pattern.matches("^[A-Za-z\\s]+",lastName)){
+
+            showErrorMessage("Please remove any digit or any special character in last name field", "Error Information", LastName);
+        }
+        else if (MiddleName.getText().trim().equals("") ){
+
+            showErrorMessage("Please add First name ", "Error Information", MiddleName);
+        }
+        else if (!Pattern.matches("^[A-Za-z\\s]+",middleName)){
+
+            showErrorMessage("Please remove any digit or any special character in name fields", "Error Information", MiddleName);
         }
         ////////---- Spouse Name ----////////
         else if (SpouseName.getText().trim().equals("") && (maritalCBox.getSelectionModel().getSelectedItem().toString().equals("Married")||

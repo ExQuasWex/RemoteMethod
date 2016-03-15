@@ -15,6 +15,20 @@ public class FamilyInfo implements Serializable{
     private int barangayID = 0;
     private int totalResolution = 0;
 
+    private String name;
+    private String Lastname;
+    private String Middlename;
+
+    private String spouseName;
+    private String age;
+    private String maritalStatus;
+    private String barangay;
+    private String gender;
+    private String address;
+    private int clientID;
+
+    private int familyId;
+
     public int getTotalResolution() {
         return totalResolution;
     }
@@ -39,52 +53,109 @@ public class FamilyInfo implements Serializable{
         this.familyId = familyId;
     }
 
-    private String name;
-    private String spouseName;
-    private String age;
-    private String maritalStatus;
-    private String barangay;
-    private String gender;
-    private String address;
-    private int clientID;
 
-    private int familyId;
-
-    public FamilyInfo(){
-
-    }
-
-    public FamilyInfo(int id, int yrResidency,int numOfChildren, String name,
-                      String spouseName, String age, String  maritalstatus, String gender)  {
-
-        setfamilyId(id);
-         residencyYr = yrResidency;
-         numofChildren = numOfChildren;
-        this.name = name;
-        this.spouseName = spouseName;
-        this.age = age;
-        this.maritalStatus = maritalstatus;
-        this.gender = gender;
-
-    }
-
-    public FamilyInfo(int clientID, String inputDate, LocalDate surveyedYr, int residencyYr, int numofChildren, String name,
-                      String spouseName, String age, String maritalStatus, String barangay, String gender, String address) {
-
-       this.clientID = clientID;
+    public FamilyInfo(String inputDate, LocalDate surveyedYr, int residencyYr, int numofChildren, int barangayID,
+                      int totalResolution, String name, String lastname, String middlename, String spouseName,
+                      String age, String maritalStatus, String barangay, String gender, String address,
+                      int clientID, int familyId) {
         this.inputDate = inputDate;
         this.surveyedYr = surveyedYr;
         this.residencyYr = residencyYr;
         this.numofChildren = numofChildren;
-
+        this.barangayID = barangayID;
+        this.totalResolution = totalResolution;
         this.name = name;
+        Lastname = lastname;
+        Middlename = middlename;
         this.spouseName = spouseName;
         this.age = age;
         this.maritalStatus = maritalStatus;
         this.barangay = barangay;
         this.gender = gender;
         this.address = address;
+        this.clientID = clientID;
+        this.familyId = familyId;
     }
+
+    public FamilyInfo(String inputDate, LocalDate surveyedYr, int residencyYr,
+                      int numofChildren, String name, String lastname, String middlename,
+                      String spouseName, String age, String maritalStatus, String barangay,
+                      String gender, String address, int clientID, int familyId) {
+        this.inputDate = inputDate;
+        this.surveyedYr = surveyedYr;
+        this.residencyYr = residencyYr;
+        this.numofChildren = numofChildren;
+        this.name = name;
+        Lastname = lastname;
+        Middlename = middlename;
+        this.spouseName = spouseName;
+        this.age = age;
+        this.maritalStatus = maritalStatus;
+        this.barangay = barangay;
+        this.gender = gender;
+        this.address = address;
+        this.clientID = clientID;
+        this.familyId = familyId;
+    }
+
+    public FamilyInfo(String inputDate, LocalDate surveyedYr, int residencyYr,
+                      int numofChildren, String name, String lastname, String middlename,
+                      String spouseName, String age, String maritalStatus, String barangay,
+                      String gender, String address, int clientID) {
+        this.inputDate = inputDate;
+        this.surveyedYr = surveyedYr;
+        this.residencyYr = residencyYr;
+        this.numofChildren = numofChildren;
+        this.name = name;
+        Lastname = lastname;
+        Middlename = middlename;
+        this.spouseName = spouseName;
+        this.age = age;
+        this.maritalStatus = maritalStatus;
+        this.barangay = barangay;
+        this.gender = gender;
+        this.address = address;
+        this.clientID = clientID;
+    }
+
+    public FamilyInfo(int residencyYr, int familyId, int numofChildren,
+                      String name, String lastname, String middlename, String spouseName,
+                      String maritalStatus, String age, String gender) {
+        this.residencyYr = residencyYr;
+        this.familyId = familyId;
+        this.numofChildren = numofChildren;
+        this.name = name;
+        Lastname = lastname;
+        Middlename = middlename;
+        this.spouseName = spouseName;
+        this.maritalStatus = maritalStatus;
+        this.age = age;
+        this.gender = gender;
+    }
+
+    public FamilyInfo(){
+
+    }
+
+
+
+    public String getLastname() {
+        return Lastname;
+    }
+
+    public void setLastname(String lastname) {
+        Lastname = lastname;
+    }
+
+    public String getMiddlename() {
+        return Middlename;
+    }
+
+    public void setMiddlename(String middlename) {
+        Middlename = middlename;
+    }
+
+
 
     public int familyId() {
         return familyId;

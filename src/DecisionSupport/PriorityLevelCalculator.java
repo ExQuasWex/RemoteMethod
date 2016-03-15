@@ -177,7 +177,7 @@ public class PriorityLevelCalculator {
             priorityLevel = PriorityLevel.Low;
         }
         else if (factors > 2 && factors <= 3){
-            priorityLevel = PriorityLevel.Medium;
+            priorityLevel = PriorityLevel.Moderate;
         }
         else if (factors > 3 && factors <= 4){
             priorityLevel = PriorityLevel.High;

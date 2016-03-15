@@ -25,25 +25,25 @@ public class Prioritizer {
        if (jobPriorityLevel == PriorityLevel.Low && homePriorityLevel ==  PriorityLevel.Low ){
             priorityLevel = PriorityLevel.Low;
         }
-        else if (jobPriorityLevel == PriorityLevel.Medium && homePriorityLevel ==  PriorityLevel.Low ){
-            priorityLevel = PriorityLevel.Medium;
+        else if (jobPriorityLevel == PriorityLevel.Moderate && homePriorityLevel ==  PriorityLevel.Low ){
+            priorityLevel = PriorityLevel.Moderate;
         }
         else if (jobPriorityLevel == PriorityLevel.High && homePriorityLevel ==  PriorityLevel.Low ){
-            priorityLevel = PriorityLevel.Medium;
+            priorityLevel = PriorityLevel.Moderate;
         }
         else if (jobPriorityLevel == PriorityLevel.Critical && homePriorityLevel ==  PriorityLevel.Low ){
             priorityLevel = PriorityLevel.High;
         }
 
-        //  Home level Medium
+        //  Home level Moderate
 
-        else if (jobPriorityLevel == PriorityLevel.Medium && homePriorityLevel ==  PriorityLevel.Medium ){
+        else if (jobPriorityLevel == PriorityLevel.Moderate && homePriorityLevel ==  PriorityLevel.Moderate ){
             priorityLevel = PriorityLevel.High;
         }
-        else if (jobPriorityLevel == PriorityLevel.High && homePriorityLevel ==  PriorityLevel.Medium ){
+        else if (jobPriorityLevel == PriorityLevel.High && homePriorityLevel ==  PriorityLevel.Moderate ){
             priorityLevel = PriorityLevel.High;
         }
-        else if (jobPriorityLevel == PriorityLevel.Critical && homePriorityLevel ==  PriorityLevel.Medium ){
+        else if (jobPriorityLevel == PriorityLevel.Critical && homePriorityLevel ==  PriorityLevel.Moderate ){
             priorityLevel = PriorityLevel.High;
         }
 
@@ -67,25 +67,25 @@ public class Prioritizer {
         else if (homePriorityLevel == PriorityLevel.Low && jobPriorityLevel == PriorityLevel.Low  ){
             priorityLevel = PriorityLevel.Low;
         }
-       else if (homePriorityLevel == PriorityLevel.Medium && jobPriorityLevel == PriorityLevel.Low  ){
-           priorityLevel = PriorityLevel.Medium;
+       else if (homePriorityLevel == PriorityLevel.Moderate && jobPriorityLevel == PriorityLevel.Low  ){
+           priorityLevel = PriorityLevel.Moderate;
        }
        else if (homePriorityLevel == PriorityLevel.High && jobPriorityLevel == PriorityLevel.Low  ){
-           priorityLevel = PriorityLevel.Medium;
+           priorityLevel = PriorityLevel.Moderate;
        }
        else if (homePriorityLevel == PriorityLevel.Critical && jobPriorityLevel == PriorityLevel.Low  ){
            priorityLevel = PriorityLevel.High;
        }
 
-       // job level medium
+       // job level Moderate
 
-        else if (homePriorityLevel == PriorityLevel.Medium && jobPriorityLevel == PriorityLevel.Medium  ){
-            priorityLevel = PriorityLevel.Medium;
+        else if (homePriorityLevel == PriorityLevel.Moderate && jobPriorityLevel == PriorityLevel.Moderate  ){
+            priorityLevel = PriorityLevel.Moderate;
         }
-        else if (homePriorityLevel == PriorityLevel.High && jobPriorityLevel == PriorityLevel.Medium  ){
-            priorityLevel = PriorityLevel.Medium;
+        else if (homePriorityLevel == PriorityLevel.High && jobPriorityLevel == PriorityLevel.Moderate  ){
+            priorityLevel = PriorityLevel.Moderate;
         }
-        else if (homePriorityLevel == PriorityLevel.Critical && jobPriorityLevel == PriorityLevel.Medium  ){
+        else if (homePriorityLevel == PriorityLevel.Critical && jobPriorityLevel == PriorityLevel.Moderate  ){
             priorityLevel = PriorityLevel.High;
         }
 
@@ -122,7 +122,7 @@ public class Prioritizer {
 
             priorityType = getPriorityTypeBaseOnPoverty(familyPoverty, children );
         }
-        else if (jobLevel == PriorityLevel.Medium && homeLevel ==  PriorityLevel.Low ){
+        else if (jobLevel == PriorityLevel.Moderate && homeLevel ==  PriorityLevel.Low ){
             priorityType = PriorityType.JOB;
         }
         else if (jobLevel == PriorityLevel.High && homeLevel ==  PriorityLevel.Low ){
@@ -132,15 +132,15 @@ public class Prioritizer {
             priorityType = PriorityType.JOB;
         }
 
-        //  Home level Medium
+        //  Home level Moderate
 
-        else if (jobLevel == PriorityLevel.Medium && homeLevel ==  PriorityLevel.Medium ){
+        else if (jobLevel == PriorityLevel.Moderate && homeLevel ==  PriorityLevel.Moderate ){
             priorityType = getPriorityTypeBaseOnPoverty(familyPoverty, children );
         }
-        else if (jobLevel == PriorityLevel.High && homeLevel ==  PriorityLevel.Medium ){
+        else if (jobLevel == PriorityLevel.High && homeLevel ==  PriorityLevel.Moderate ){
             priorityType = PriorityType.JOB;
         }
-        else if (jobLevel == PriorityLevel.Critical && homeLevel ==  PriorityLevel.Medium ){
+        else if (jobLevel == PriorityLevel.Critical && homeLevel ==  PriorityLevel.Moderate ){
             priorityType = PriorityType.JOB;
         }
 
@@ -164,7 +164,7 @@ public class Prioritizer {
             priorityType = getPriorityTypeBaseOnPoverty(familyPoverty, children );
 
         }
-        else if (homeLevel == PriorityLevel.Medium && jobLevel == PriorityLevel.Low  ){
+        else if (homeLevel == PriorityLevel.Moderate && jobLevel == PriorityLevel.Low  ){
             priorityType = PriorityType.HOME;
         }
         else if (homeLevel == PriorityLevel.High && jobLevel == PriorityLevel.Low  ){
@@ -174,15 +174,15 @@ public class Prioritizer {
             priorityType = PriorityType.HOME;
         }
 
-        // job level medium
+        // job level Moderate
 
-        else if (homeLevel == PriorityLevel.Medium && jobLevel == PriorityLevel.Medium  ){
+        else if (homeLevel == PriorityLevel.Moderate && jobLevel == PriorityLevel.Moderate  ){
             priorityType = getPriorityTypeBaseOnPoverty(familyPoverty, children );
         }
-        else if (homeLevel == PriorityLevel.High && jobLevel == PriorityLevel.Medium  ){
+        else if (homeLevel == PriorityLevel.High && jobLevel == PriorityLevel.Moderate  ){
             priorityType = PriorityType.HOME;
         }
-        else if (homeLevel == PriorityLevel.Critical && jobLevel == PriorityLevel.Medium  ){
+        else if (homeLevel == PriorityLevel.Critical && jobLevel == PriorityLevel.Moderate  ){
             priorityType = PriorityType.HOME;
         }
 
@@ -232,7 +232,7 @@ public class Prioritizer {
                 if (priorityLevel == PriorityLevel.Low){
                     low += 1;
                 }
-                else if (priorityLevel == PriorityLevel.Medium){
+                else if (priorityLevel == PriorityLevel.Moderate){
                     med += 1;
                 }
                 else if (priorityLevel == PriorityLevel.High){
@@ -248,16 +248,15 @@ public class Prioritizer {
             barangayPriorityLevel = PriorityLevel.Low;
         }
         else if (med > low && med > high && med > critical){
-            barangayPriorityLevel = PriorityLevel.Medium;
+            barangayPriorityLevel = PriorityLevel.Moderate;
         }
         else if (high > low && high > med && high > critical){
             barangayPriorityLevel = PriorityLevel.High;
         }
         else if (critical > low && critical > med && critical > high){
             barangayPriorityLevel = PriorityLevel.Critical;
-        }else {
-            barangayPriorityLevel = PriorityLevel.Undetermined;
-
+        }else if (low == med && critical == med){
+            barangayPriorityLevel = PriorityLevel.Moderate;
         }
 
         return barangayPriorityLevel;
