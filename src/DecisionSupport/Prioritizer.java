@@ -225,6 +225,7 @@ public class Prioritizer {
         int high = 0;
         int critical = 0;
 
+
         for (FamilyPoverty familyPoverty : familyPoverties){
 
             PriorityLevel priorityLevel = familyPoverty.getPriorityLevel();
@@ -255,9 +256,13 @@ public class Prioritizer {
         }
         else if (critical > low && critical > med && critical > high){
             barangayPriorityLevel = PriorityLevel.Critical;
-        }else if (low == med && critical == med){
-            barangayPriorityLevel = PriorityLevel.Moderate;
         }
+
+        System.out.println("LOW: " + low);
+        System.out.println("Moderate: " + med);
+        System.out.println("Hight: " + high);
+        System.out.println("critical: " + critical);
+
 
         return barangayPriorityLevel;
     }
